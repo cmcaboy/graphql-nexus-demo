@@ -426,6 +426,7 @@ export interface NexusGenRootTypes {
     startCursor?: string | null; // String
   }
   Query: {};
+  Subscription: {};
   String: string;
   Int: number;
   Float: number;
@@ -539,6 +540,9 @@ export interface NexusGenFieldTypes {
     employers: NexusGenRootTypes['Employer'][]; // [Employer!]!
     employersConnection: NexusGenRootTypes['EmployerConnection']; // EmployerConnection!
   }
+  Subscription: { // field return type
+    newEmployee: NexusGenRootTypes['Employee'] | null; // Employee
+  }
 }
 
 export interface NexusGenArgTypes {
@@ -643,6 +647,11 @@ export interface NexusGenArgTypes {
       where?: NexusGenInputs['EmployerWhereInput'] | null; // EmployerWhereInput
     }
   }
+  Subscription: {
+    newEmployee: { // args
+      employer_id: string; // String!
+    }
+  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {
@@ -650,7 +659,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AggregateEmployee" | "AggregateEmployer" | "BatchPayload" | "Employee" | "EmployeeConnection" | "EmployeeEdge" | "Employer" | "EmployerConnection" | "EmployerEdge" | "Mutation" | "PageInfo" | "Query";
+export type NexusGenObjectNames = "AggregateEmployee" | "AggregateEmployer" | "BatchPayload" | "Employee" | "EmployeeConnection" | "EmployeeEdge" | "Employer" | "EmployerConnection" | "EmployerEdge" | "Mutation" | "PageInfo" | "Query" | "Subscription";
 
 export type NexusGenInputNames = "EmployeeCreateInput" | "EmployeeCreateManyWithoutEmployerInput" | "EmployeeCreateWithoutEmployerInput" | "EmployeeScalarWhereInput" | "EmployeeUpdateInput" | "EmployeeUpdateManyDataInput" | "EmployeeUpdateManyMutationInput" | "EmployeeUpdateManyWithWhereNestedInput" | "EmployeeUpdateManyWithoutEmployerInput" | "EmployeeUpdateWithWhereUniqueWithoutEmployerInput" | "EmployeeUpdateWithoutEmployerDataInput" | "EmployeeUpsertWithWhereUniqueWithoutEmployerInput" | "EmployeeWhereInput" | "EmployeeWhereUniqueInput" | "EmployerCreateInput" | "EmployerCreateOneWithoutEmployeesInput" | "EmployerCreateWithoutEmployeesInput" | "EmployerUpdateInput" | "EmployerUpdateManyMutationInput" | "EmployerUpdateOneWithoutEmployeesInput" | "EmployerUpdateWithoutEmployeesDataInput" | "EmployerUpsertWithoutEmployeesInput" | "EmployerWhereInput" | "EmployerWhereUniqueInput";
 

@@ -509,3 +509,11 @@ type Query {
   employers(after: String, before: String, first: Int, last: Int, orderBy: EmployerOrderByInput, skip: Int, where: EmployerWhereInput): [Employer!]!
   employersConnection(after: String, before: String, first: Int, last: Int, orderBy: EmployerOrderByInput, skip: Int, where: EmployerWhereInput): EmployerConnection!
 }
+
+type Subscription {
+  """Shows the list of employees in real time for a particular employer"""
+  newEmployee(
+    """Id of the employer"""
+    employer_id: String!
+  ): Employee
+}
